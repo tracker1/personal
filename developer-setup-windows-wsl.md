@@ -300,7 +300,7 @@ sudo apt-get install -yqq \
     libsqlite3-dev wget curl llvm libncurses5-dev \
     xz-utils tk-dev libxml2-dev libxmlsec1-dev \
     libffi-dev liblzma-dev unixodbc odbcinst \
-    git git-lfs lastpass-cli
+    git git-lfs lastpass-cli pip
 ```
 
 ### Lastpass CLI
