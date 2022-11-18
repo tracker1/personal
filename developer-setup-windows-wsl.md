@@ -196,6 +196,7 @@ If there's an error that you don't have permissions, run the following commands.
 ```
 sudo groupadd docker
 sudo usermod -aG docker ${USER}
+newgrp docker
 ```
 
 Close and re-open your terminal tab.
