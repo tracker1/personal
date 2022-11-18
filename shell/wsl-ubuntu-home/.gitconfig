@@ -1,0 +1,24 @@
+[user]
+  name = YOUR NAME HERE
+  email = YOUR.NAME@email.domain
+[core]
+  editor = code --wait
+	autocrlf = input
+[credential]
+  useHttpPath = true
+  helper = /mnt/c/Program\\ Files\\ \\(x86\\)/Git\\ Credential\\ Manager/git-credential-manager-core.exe
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+[pull]
+  rebase = false
+[merge]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
