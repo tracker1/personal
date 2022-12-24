@@ -12,10 +12,9 @@ upper/lower/special/number combination requirements are no longer current best
 practice suggestions from NIST and other security advisories. It's also best to
 keep it until/unless there is a belief of a breach of security.
 
-Once you have LastPass installed, you can use that to remember your other
-passphrases in use. You usually only really need to remember your system
-login(s) and your lastpass in practice. For personal use, you might also
-consider BitWarden as an alternative password manager.
+Once you have Bitwarden, LastPass or another password manager installed, you can
+use that to remember your other passphrases in use. You usually only really need
+to remember your system login(s) and your password manager in practice.
 
 # Configurations
 
