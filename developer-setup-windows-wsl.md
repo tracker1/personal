@@ -27,7 +27,7 @@ afterward, will want to reference or directly copy
 - Window's Home is...
   - `C:\Users\YOURNAME`
     - You may want to create a shortcut to your wsl home in your Quick access
-- Examples in `_docs/shell/windows-home`
+- Examples in `shell/windows-home`
   - `.gitconfig` - Git configuration file
     - Update to use your Email and Name.
   - `profile.*.ps1` - powershell profile
@@ -44,7 +44,7 @@ afterward, will want to reference or directly copy
     - You may want to create a shortcut to your wsl home in your Quick access
     - Start with `\\wsl$` in your file explorer address bar as your specific
       location may vary.
-- Examples in `_docs/shell/wsl-ubuntu-home`
+- Examples in `shell/wsl-ubuntu-home`
   - `.gitconfig` - configured git configuration
     - Update to use your Email and Name.
   - `.bashrc.default` - edited default ubuntu bashrc file _**NOTE:**_ Update the
@@ -264,26 +264,26 @@ Best to use **Fira Code** font above.
 
 - Powershell 6
   - From a powershell 6 prompt, `code $profile`
-  - Paste the contents from `_docs/shell/windows-home/profile.v6.ps1`
+  - Paste the contents from `shell/windows-home/profile.v6.ps1`
   - Save and exit
 - Powershell 7
   - From a powershell 7 prompt, `code $profile`
-  - Paste the contents from `_docs/shell/windows-home/profile.v7.ps1`
+  - Paste the contents from `shell/windows-home/profile.v7.ps1`
   - Save and exit
 - Home Environment
   - From a powershell prompt, `code $env:userprofile`
   - Create/replace `.gitconfig`
-    - contents from `_docs/shell/windows-home/.gitconfig`
+    - contents from `shell/windows-home/.gitconfig`
     - Update name and email address
   - Create `.wslconfig`
-    - contents from `_docs/shell/windows-home/.wslconfig`
+    - contents from `shell/windows-home/.wslconfig`
 
 ---
 
 # WSL Ubuntu Environment
 
-In this repository under `_docs/shell/wsl-ubuntu-home`, you should copy the
-following files into your WSL environment...
+In this repository under `shell/wsl-ubuntu-home`, you should copy the following
+files into your WSL environment...
 
 ## Initial Bash Configuration
 
