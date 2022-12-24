@@ -22,7 +22,7 @@ consider BitWarden as an alternative password manager.
 You should step through the installations below this section first, but
 afterward, will want to reference or directly copy
 
-### Windows Powershell
+## Windows Powershell
 
 - Window's Home is...
   - `C:\Users\YOURNAME`
@@ -36,7 +36,7 @@ afterward, will want to reference or directly copy
     - Try to leave ~8gb open for windows, more if using Visual Studio
     - Half of your physical ram is typical
 
-### Ubuntu Bash
+## Ubuntu Bash
 
 - Ubuntu's Home is...
   - `~/` or `/home/YOURNAME` inside the environment
@@ -59,16 +59,7 @@ afterward, will want to reference or directly copy
 Note: Windows install commands below should be done from PowerShell (non-admin),
 unless specified otherwise.
 
-### LastPass
-
-https://www.lastpass.com/
-
-- Create/Register an account with your `healthtrustpg.com` email address.
-- Install the browser plugin for your browser, Edge, Firefox, Chrome etc should
-  all be supported.
-- There is also an app for use in Android and iOS.
-
-### Powershell Scripts
+## Powershell Scripts
 
 Enable unrestricted powershell scripts (can disable later if desired)
 
@@ -76,18 +67,24 @@ Enable unrestricted powershell scripts (can disable later if desired)
 - `Set-ExecutionPolicy unrestricted`
 - Close the powershell prompt/window
 
-### App Installer (aka WinGet)
+## App Installer (aka WinGet)
 
 https://github.com/microsoft/winget-cli
 
 - Run latest .msixbundle - will redirect to Windows Store to Windows Store, to
   Install "App Installer"
 
-### Visual Studio Code
+## Visual Studio Code
 
 - `winget install Microsoft.VisualStudioCode`
 
-### Microsoft Windows Terminal
+Once visual studio code is installed, run it. On the left will be an extensions
+side tab, about the 5th item down.
+
+Under extensions search, look for `Remote Development` You will want to install
+the Remote Development extension pack from Microsoft.
+
+## Microsoft Windows Terminal
 
 - `winget install Microsoft.WindowsTerminal`
 - With the new terminal installed, you can close other sessions/terminals and
@@ -95,11 +92,11 @@ https://github.com/microsoft/winget-cli
 - Supports multi-tabs and different environments (powershell, wsl/ubuntu, git
   bash, etc)
 
-### Powershell 7
+## Powershell 7
 
 - `winget install Microsoft.PowerShell`
 
-### Git
+## Git
 
 ```
 winget install Git.Git --override '/COMPONENTScomponents="ext,ext\shellhere,ext\guihere,gitlfs,assoc,assoc_sh,windowsterminal,scalar"'
@@ -143,26 +140,30 @@ If this is a (re)install, uncheck the "Only show new options".
   - Check: "Enable experimental build-in file system monitor."
   - Next...
 
-### Git Credential Manager
+## Git Credential Manager
 
 - `winget install Microsoft.GitCredentialManagerCore`
 
-### Dotnet 6 SDK
+## Dotnet 6 SDK
 
 - `winget install Microsoft.DotNet.SDK.6`
 - `dotnet tool install -g dotnet-format`
 
-### WSL
+## SQL Server Management Studio
+
+- `winget install Microsoft.SQLServerManagementStudio`
+
+## WSL
 
 - `wsl --install`
 - reboot
 
-### Windows Updates
+## Windows Updates
 
 - Run windows updates until there are no more
 - reboot
 
-### Ubuntu (for WSL)
+## Ubuntu (for WSL)
 
 Unless otherwise specified, all further commands will be done in an "Ubuntu" WSL
 shell inside Windows Terminal.
@@ -176,7 +177,7 @@ passphrase, these are NOT your SSO/Windows account, you can use whatever you
 like. Note that you will need the passphrase for every administrative action
 under Ubuntu, and it you will need to remember this.
 
-### Docker Desktop
+## Docker Desktop
 
 - `winget install --exact --id Docker.DockerDesktop --accept-source-agreements --accept-package-agreements`
 - Once installed you may need to reboot
@@ -201,7 +202,7 @@ newgrp docker
 
 Close and re-open your terminal tab.
 
-### Docker Alternative: Rancher Desktop
+## Docker Alternative: Rancher Desktop
 
 _**DO NOT INSTALL THIS IF YOU INSTLLED DOCKER DESKTOP**_
 
@@ -221,16 +222,9 @@ it to your startup by hand as there isn't currently a configuration option.
   - copy the launch shortcut to the startup dir
 - Reboot
 
-### Starship.rs Prompt
+## Fira Code - Font
 
-https://starship.rs/
-
-Best to use **Fira Code** font above.
-
-- `winget install --id Starship.Starship`
-- See **Configurations** section
-
-### Fira Code - Font
+This will be used for displaying glyphs in the Starship prompt.
 
 https://github.com/tonsky/FiraCode
 
@@ -242,48 +236,81 @@ This is used with Starship to display most glyphs.
   - Open each TTF file
   - Click Install button
   - Close window
-- See **Configurations** section
 
-#### Visual Studio Code
+### Configure Visual Studio Code
 
 - open File->Preferences->Settings
 - Search for "Font"
 - Prepend `'Fira Code Regular',` to the font list.
 - Optional, enable font ligatures.
 
-#### Windows Terminal
+### Configure Windows Terminal
 
 - Open Settings (down arrow next to plus sigm)
 - Open JSON Settings
-- Under `profiles`->`default`
-  - `"fontFace": "Fira Code"`
+- Inside `profiles`->`default`
+  - add `"font": { "face": "Fira Code" }`
 - Save and Close
+
+## Starship.rs Prompt
+
+https://starship.rs/
+
+Best to use **Fira Code** font above.
+
+- `winget install --id Starship.Starship`
+
+## Configure Windows Environment
+
+- Powershell 6
+  - From a powershell 6 prompt, `code $profile`
+  - Paste the contents from `_docs/shell/windows-home/profile.v6.ps1`
+  - Save and exit
+- Powershell 7
+  - From a powershell 7 prompt, `code $profile`
+  - Paste the contents from `_docs/shell/windows-home/profile.v7.ps1`
+  - Save and exit
+- Home Environment
+  - From a powershell prompt, `code $env:userprofile`
+  - Create/replace `.gitconfig`
+    - contents from `_docs/shell/windows-home/.gitconfig`
+    - Update name and email address
+  - Create `.wslconfig`
+    - contents from `_docs/shell/windows-home/.wslconfig`
+
+---
 
 # WSL Ubuntu Environment
 
-### Initial Bash Configuration
+In this repository under `_docs/shell/wsl-ubuntu-home`, you should copy the
+following files into your WSL environment...
+
+## Initial Bash Configuration
 
 - `cp ~/.bashrc ~/.bashrc.default`
 - `code ~/.bashrc`
   - comment out interactive lines (5-9)
 - `touch ~/.bashrc.aliases`
-- `touch ~/.bashrc`
-  - Always at the top
-    - `source ~/.bashrc.default`
-    - `export EMAIl=YOUR.NAME@healthtrustpg.com`
-  - Always at the bottom
-    - `source ~/.bashrc.aliases`
 - `mkdir ~/bin`
 
-### Starship
+From here, you will be copying content from `shell/wsl-ubuntu-home` into your
+environment. From your Ubuntu/bash shell, enter `code ~/` which should open VS
+Code into your environment.
 
-```
-curl -sS https://starship.rs/install.sh | sh
-```
+- `.bashrc` - this will be your new bash startup file, it's preconfigured for
+  your environment once complete, and you should edit the `EMAIL` address export
+  near the top to match your address.
+- `.bashrc.default` - copy of original bashrc file, minor change/comment
+- `.bashrc.aliases` - you can put useful shortcuts here.
+- `.bashrc.proxy` - these are utility methods for turning the proxy settings
+  on/off as necessary.
+- `.gitconfig` - these are configuration options for git in the WSL environment.
+  Update the email address and real name.
 
-See **Configuration** - `_docs/shell/wsl-ubuntu-home/.bashrc`
+Once you have created/saved these files, you may close VS Code and any terminal
+windows. From here you can open a fresh ubuntu window in terminal.
 
-### Updates and Dependencies
+## Updates and Dependencies
 
 Run the following commands to update your WSL Ubuntu Linux environment, as well
 as install pre-requisites for other packages.
@@ -300,28 +327,47 @@ sudo apt-get install -yqq \
     libssl-dev zlib1g-dev libbz2-dev libreadline-dev \
     libsqlite3-dev wget curl llvm libncurses5-dev \
     xz-utils tk-dev libxml2-dev libxmlsec1-dev \
-    libffi-dev liblzma-dev unixodbc odbcinst \
-    git git-lfs lastpass-cli pip
+    libffi-dev liblzma-dev unixodbc unixodbc-dev odbcinst \
+    git git-lfs libsecret-1-0 unzip zip pass gnupg2 pip
 ```
 
-### Lastpass CLI
+## Starship
 
-- `lpass login YOUREMAIL`
-- Enter your passphrase for lastpass
+```
+curl -sS https://starship.rs/install.sh | sh
+```
 
-### pyenv
+## GPG Key (For Rancher Auth)
 
-#### Clone pyenv
+```
+gpg2 --gen-key
+
+gpg_id="$(gpg --list-keys | grep "expires" -A1 | awk 'NR==2' | sed -e 's/^[ \t]*//')"
+pass init $gpg_id
+```
+
+## SQL ODBC Driver
+
+```
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+
+curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee -a /etc/apt/sources.list.d/mssql-release.list
+
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install -yqq msodbcsql18 msodbcsql17 mssql-tools
+```
+
+## pyenv
+
+### Clone pyenv
 
 `git clone https://github.com/pyenv/pyenv.git ~/.pyenv`
 
-#### Clone pyenv virtualenv
+### Clone pyenv virtualenv
 
 `git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv`
 
-#### Setup local environment, register pyenv
-
-See **Configuration** - `_docs/shell/wsl-ubuntu-home/.bashrc`
+### Setup local environment, register pyenv
 
 Run the commands below in your current terminal to activate pyenv, these will
 also be needed in your `.bashrc`.
@@ -334,20 +380,20 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
 
-#### Install Python
+### Install Python
 
 Install the version of python to use and setup/configure global and local
 environment(s)
 
-_**NOTE:**_ Referencing `3.11.0` below, but any newer `3.x.x` release of Python
+_**NOTE:**_ Referencing `3.9.13` below, but any newer `3.x.x` release of Python
 should work as well.
 
 ```
-pyenv install 3.11.0
-pyenv global 3.11.0
+pyenv install 3.9.13
+pyenv global 3.9.13
 ```
 
-### Node.js, nvm and yarn
+## Node.js, nvm and yarn
 
 ```
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
@@ -364,9 +410,7 @@ npm i -g npm
 npm i -g yarn
 ```
 
-See **Configuration** - `_docs/shell/wsl-ubuntu-home/.bashrc`
-
-### Dotnet 6
+## Dotnet 6
 
 ```
 curl -L -o ~/bin/dotnet-install.sh https://dot.net/v1/dotnet-install.sh
@@ -378,12 +422,10 @@ chmod +x ~/bin/dotnet-install.sh
 dotnet tool install -g dotnet-format
 ```
 
-See **Configuration** - `_docs/shell/wsl-ubuntu-home/.bashrc`
-
 Can use `dotnet-format --fix-style` to correct (most) stylecop linting issues in
 `api.shopping` and `api.shopping.tests`.
 
-### Deno
+## Deno
 
 ```
 export DENO_INSTALL="$HOME/.deno"
@@ -394,24 +436,22 @@ curl -fsSL https://deno.land/x/install/install.sh | sh
 deno --version
 ```
 
-### Go
+## Go
 
-[check go website](https://golang.google.cn/dl/), for latest download url.
+[check go website](https://go.dev/dl/), for latest download url.
 
 ```
 export PATH=$PATH:$HOME/.local/go/bin
 export GOPATH=$HOME/src
 
-wget https://golang.google.cn/dl/go1.19.3.linux-amd64.tar.gz
-tar -C ~/.local -xzf go1.19.3.linux-amd64.tar.gz
-rm go1.19.3.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.19.4.linux-amd64.tar.gz
+tar -C ~/.local -xzf go1.19.4.linux-amd64.tar.gz
+rm go1.19.4.linux-amd64.tar.gz
 
 go version
 ```
 
-See **Configuration** - `_docs/shell/wsl-ubuntu-home/.bashrc`
-
-### Rust
+## Rust
 
 Default options should work...
 
@@ -420,5 +460,3 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 source "$HOME/.cargo/env"
 ```
-
-See **Configuration** - `_docs/shell/wsl-ubuntu-home/.bashrc`
