@@ -128,7 +128,7 @@ If this is a (re)install, uncheck the "Only show new options".
 - "Default (fast-forward or merge)"
   - Can use "Rebase" if you prefer and understand this
   - Next...
-- "None" (GCM installed separately after this)
+- "Git Credential Manager"
   - Next...
 - Extra Options:
   - Check "Enable file system caching"
@@ -139,14 +139,12 @@ If this is a (re)install, uncheck the "Only show new options".
   - Check: "Enable experimental build-in file system monitor."
   - Next...
 
-## Git Credential Manager
-
-- `winget install Microsoft.GitCredentialManagerCore`
-
 ## Dotnet 6 SDK
 
 - `winget install Microsoft.DotNet.SDK.6`
+- `winget install Microsoft.DotNet.SDK.7`
 - `dotnet tool install -g dotnet-format`
+- `dotnet tool install -g grate`
 
 ## SQL Server Management Studio
 
@@ -384,12 +382,12 @@ eval "$(pyenv virtualenv-init -)"
 Install the version of python to use and setup/configure global and local
 environment(s)
 
-_**NOTE:**_ Referencing `3.9.13` below, but any newer `3.x.x` release of Python
+_**NOTE:**_ Referencing `3.11.2` below, but any newer `3.x.x` release of Python
 should work as well.
 
 ```
-pyenv install 3.9.13
-pyenv global 3.9.13
+pyenv install 3.11.2
+pyenv global 3.11.2
 ```
 
 ## Node.js, nvm and yarn
