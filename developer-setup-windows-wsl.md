@@ -346,7 +346,11 @@ pass init $gpg_id
 ## SQL ODBC Driver
 
 ```
-curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > ~/microsoft.gpg
+
+sudo install -o root -g root -m 644 ~/microsoft.gpg /etc/apt/trusted.gpg.d/
+
+rm ~/microsoft.gpg
 
 curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list | sudo tee -a /etc/apt/sources.list.d/mssql-release.list
 
